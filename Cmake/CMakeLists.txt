@@ -6,11 +6,11 @@ project(${PROJECT_NAME})
 set(CMAKE_CXX_STANDARD 11)
 
 # 添加所有的源文件
-aux_source_directory(./src srcs)
-aux_source_directory(./src/SmartCard smartcard)
+file(GLOB srcs ./src/*/*.cpp)
+file(GLOB main ./src/*.cpp)
 SET(Minesweeper_SOURCES 
 	${srcs}
-	${smartcard}
+	${main}
 )
 
 # 添加所有的头文件

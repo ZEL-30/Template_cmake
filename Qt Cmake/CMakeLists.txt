@@ -12,18 +12,17 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS "-m32")
 
 # 添加所有的源文件
-aux_source_directory(./src srcs)
-aux_source_directory(./src/main_window main_window)
+file(GLOB srcs ./src/*/*.cpp)
+file(GLOB main ./src/*.cpp)
 SET(Minesweeper_SOURCES 
 	${srcs}
-	${main_window}
+	${main}
 )
 
 # 添加所有的头文件
 include_directories(./third_lib/public_lib/include 
     ./src/main_window
 )
-
 
 
 file(GLOB include ./src/*/*.h)
