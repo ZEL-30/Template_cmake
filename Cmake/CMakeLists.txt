@@ -15,7 +15,7 @@ SET(Minesweeper_SOURCES
 
 # 添加所有的头文件
 include_directories(./third_lib/public_lib/include 
-	./src/SmartCard
+	# ./src/
 )
 
 
