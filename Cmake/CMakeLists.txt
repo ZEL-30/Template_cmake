@@ -1,43 +1,26 @@
+# 最低版本
+cmake_minimum_required(VERSION 3.24.2) 
+
 # 设置项目名称
-set(PROJECT_NAME SmartCard)
-project(${PROJECT_NAME})
+project(Template)
 
-# 采用C++11标准
-set(CMAKE_CXX_STANDARD 11)
-
-# 添加所有的源文件
-file(GLOB srcs ./src/*/*.cpp)
-file(GLOB main ./src/*.cpp)
-SET(Minesweeper_SOURCES 
-	${srcs}
-	${main}
-)
-
-# 添加所有的头文件
-include_directories(./third_lib/public_lib/include 
-	# ./src/
-)
+# 采用C++17标准
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 
-# 添加所有的三方库
-file(GLOB thirdlib third_lib/*/lib/*)
-SET(Third_Library
-	${thirdlib}
-)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 
-# 生成可执行文件
-ADD_EXECUTABLE(${PROJECT_NAME}
-	${Minesweeper_SOURCES} 
-	${Minesweeper_HEADERS} 
-)
+# 添加子工程
+add_subdirectory(external)
+add_subdirectory(src)
+add_subdirectory(tests)
+
 
 
 # 打印
-# MESSAGE( STATUS "third_include = ${Minesweeper_SOURCES}.")
-
-
-# 为target添加需要链接的共享库
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} 
-	${Third_Library}
-)
+# MESSAGE( STATUS "目录 = ${CMAKE_CURRENT_SOURCE_DIR}/public_lib/lib/public.lib")
