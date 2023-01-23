@@ -4,7 +4,7 @@
  * 作者: ZEL
  */
 
-#include "main_window.h"
+#include "window.h"
 
 #include <QApplication>
 #pragma comment(lib, "user32.lib")

@@ -19,7 +19,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 
 # 添加子工程
-add_subdirectory(external)
+add_subdirectory(vendor)
 add_subdirectory(src)
 add_subdirectory(tests)
 

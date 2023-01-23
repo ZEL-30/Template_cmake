@@ -1,8 +1,9 @@
-# 添加源文件
-SET(Minesweeper_SOURCES main_window.cpp)
+# 查找源文件
+file(GLOB_RECURSE Minesweeper_SOURCES ${CMAKE_CURRENT_LIST_DIR}/*.cpp)
 
-# 添加头文件
-SET(Minesweeper_HEADERS main_window.h)
+# 查找头文件
+file(GLOB_RECURSE Minesweeper_HEADERS ${CMAKE_CURRENT_LIST_DIR}/*.h)
+file(GLOB HEADER_FILES_DIR "${CMAKE_CURRENT_LIST_DIR}/*" "${CMAKE_CURRENT_LIST_DIR}/*/*")
 
 # 添加所有的.ui文件
 file(GLOB ui ${CMAKE_SOURCE_DIR}/ui/*)
@@ -25,14 +26,11 @@ QT5_WRAP_UI(Minesweeper_FORMS_HEADERS ${Minesweeper_FORMS})
 # 使用rcc处理.qrc文件
 QT5_ADD_RESOURCES(Minesweeper_RESOURCES_RCC ${Minesweeper_RESOURCES})
 
-# 这些生成的中间文件都会在build目录下，这样的话，编译器则不能定位由uic程序产生的诸如_ui_mainwindow.h等文件。所以，我们需要把build目录添加到包含目录中
-# INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
 
 #  编译静态库
-add_library(MainWindow "")
+add_library(Window "")
 
-
-target_sources(MainWindow
+target_sources(Window
 PRIVATE
     ${Minesweeper_SOURCES} 
 PUBLIC
@@ -43,14 +41,15 @@ PUBLIC
 
 
 # 添加头文件
-target_include_directories(MainWindow
+target_include_directories(Window
 PUBLIC
     ${CMAKE_CURRENT_LIST_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${HEADER_FILES_DIR}
 )
 
 # 为target添加需要链接的共享库
-TARGET_LINK_LIBRARIES(MainWindow
+TARGET_LINK_LIBRARIES(Window
 PRIVATE
     ${Qt5Widgets_LIBRARIES}
 )
