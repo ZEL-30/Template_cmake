@@ -1,5 +1,5 @@
-#include "zel.h"
 #include "mode.h"
+nit#include "zel.h"
 
 int main() {
 
@@ -8,7 +8,6 @@ int main() {
     STRCPY(name, sizeof(name), "hello world");
 
     printf("%s\n", name);
-
 
     return 0;
 }
