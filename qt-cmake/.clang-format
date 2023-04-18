@@ -1,18 +1,10 @@
-BasedOnStyle: LLVM
-UseTab: Never
+# Run manually to reformat a file:
+# clang-format -i --style=file <file>
+Language: Cpp
+BasedOnStyle: Google
+SortIncludes: false
+IndentPPDirectives: AfterHash
 IndentWidth: 4
+IndentCaseLabels: false
+AlwaysBreakTemplateDeclarations: false
 DerivePointerAlignment: false
-PointerAlignment: true
-AlwaysBreakAfterReturnType: None
-AlwaysBreakTemplateDeclarations: true
-AlwaysBreakBeforeMultilineStrings: true
-AlignOperands: true
-ColumnLimit: 100
-AlignAfterOpenBracket: true
-AlignConsecutiveBitFields: true
-AlignConsecutiveMacros: true
-ConstructorInitializerAllOnOneLineOrOnePerLine: true
-AllowAllConstructorInitializersOnNextLine: false
-BinPackArguments: false
-BinPackParameters: false
-IncludeBlocks: Regroup

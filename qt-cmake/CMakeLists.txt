@@ -10,34 +10,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 
-if(MSVC)
-    add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE -D QWT_DLL)
-    # Specify MSVC UTF-8 encoding   
-    add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
-    add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")    
-endif()
-
-
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
-
-# 让cmake自动去寻找Qt5
-FIND_PACKAGE(Qt5 COMPONENTS Widgets REQUIRED)
-
-
-# set(CMAKE_AUTOUIC ON)
-# set(CMAKE_AUTOMOC ON)
-# set(CMAKE_AUTORCC ON)
 
 
 # 添加子工程
 add_subdirectory(vendor)
 add_subdirectory(src)
-add_subdirectory(tests)
-
-
-# 打印
-# MESSAGE( STATUS "目录 = ${CMAKE_CURRENT_SOURCE_DIR}/public_lib/lib/public.lib")
-
+add_subdirectory(test)
