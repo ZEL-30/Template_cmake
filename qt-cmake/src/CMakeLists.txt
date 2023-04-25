@@ -11,10 +11,10 @@ file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_LIST_DIR}/*.cpp")
 file(GLOB RESOURCES "${CMAKE_SOURCE_DIR}/res/*.qrc")
 
 # 添加可执行文件
-add_executable(template  ${SOURCES} ${RESOURCES})
+add_executable(${PROJECT_NAME}  ${SOURCES} ${RESOURCES})
 
 # 为target添加需要链接的共享库
-TARGET_LINK_LIBRARIES(template
+TARGET_LINK_LIBRARIES(${PROJECT_NAME}
 PRIVATE
     Qt5::Core
     Qt5::Gui
