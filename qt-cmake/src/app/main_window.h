@@ -10,5 +10,15 @@ class MainWindow : public QMainWindow {
     ~MainWindow();
 
   private:
+    // 初始化窗口
+    void initWindow();
+
+    // 初始化UI
+    void initUI();
+
+    /// @brief 初始化信号槽
+    void initSignalSlot();
+
+  private:
     Ui_MainWindow *ui;
 };

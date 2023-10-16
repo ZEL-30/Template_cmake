@@ -13,10 +13,24 @@ list(APPEND CMAKE_AUTOUIC_SEARCH_PATHS "${CMAKE_SOURCE_DIR}/res/ui")
 file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_LIST_DIR}/*.cpp")
 
 # 添加资源文件
-file(GLOB RESOURCES "${CMAKE_SOURCE_DIR}/res/*.qrc")
+file(GLOB RESOURCES "${CMAKE_SOURCE_DIR}/res/rc/*")
+
 
 # 添加可执行文件
-add_executable(${PROJECT_NAME}  ${SOURCES} ${RESOURCES})
+add_executable(${PROJECT_NAME}  ${SOURCES} ${RESOURCES}) #debug
+# add_executable(${PROJECT_NAME} WIN32 ${SOURCES} ${RESOURCES}  ${MY_VERSIONINFO_RC}) # release
+
+include_directories(${Qt5Gui_PRIVATE_INCLUDE_DIRS})
+
+# 为target添加头文件
+target_include_directories(${PROJECT_NAME}
+PUBLIC
+)
+
+# 为target添加库文件目录
+target_link_directories(${PROJECT_NAME}
+PUBLIC
+)
 
 # 为target添加需要链接的共享库
 TARGET_LINK_LIBRARIES(${PROJECT_NAME}
