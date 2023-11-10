@@ -32,6 +32,12 @@ target_link_directories(${PROJECT_NAME}
 PUBLIC
 )
 
+# 为target添加库文件目录
+target_link_directories(${PROJECT_NAME}
+PUBLIC
+   
+)
+
 # 为target添加需要链接的共享库
 TARGET_LINK_LIBRARIES(${PROJECT_NAME}
 PRIVATE
