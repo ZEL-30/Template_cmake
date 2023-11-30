@@ -20,5 +20,5 @@ class MainWindow : public QMainWindow {
     void initSignalSlot();
 
   private:
-    Ui_MainWindow *ui;
+    Ui_MainWindow *ui_;
 };

@@ -2,7 +2,7 @@
 
 MainWindow::MainWindow(QMainWindow *parent)
     : QMainWindow(parent)
-    , ui(new Ui_MainWindow) {
+    , ui_(new Ui_MainWindow) {
     ui->setupUi(this);
 
     initWindow();
@@ -12,7 +12,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     initSignalSlot();
 }
 
-MainWindow::~MainWindow() { delete ui; }
+MainWindow::~MainWindow() { delete ui_; }
 
 void MainWindow::initWindow() {
 
@@ -23,9 +23,9 @@ void MainWindow::initWindow() {
 void MainWindow::initUI() {
     // 插入图片
     QPixmap pixmap(":/image/data.png");
-    ui->push_btn->setIcon(pixmap);
-    ui->push_btn->setIconSize(pixmap.size());
-    ui->push_btn->setFixedSize(pixmap.size());
+    ui_->push_btn->setIcon(pixmap);
+    ui_->push_btn->setIconSize(pixmap.size());
+    ui_->push_btn->setFixedSize(pixmap.size());
 }
 
 void MainWindow::initSignalSlot() {}
