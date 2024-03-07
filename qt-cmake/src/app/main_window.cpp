@@ -3,7 +3,7 @@
 MainWindow::MainWindow(QMainWindow *parent)
     : QMainWindow(parent)
     , ui_(new Ui_MainWindow) {
-    ui->setupUi(this);
+    ui_->setupUi(this);
 
     initWindow();
 

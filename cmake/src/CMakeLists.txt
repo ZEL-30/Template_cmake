@@ -34,3 +34,11 @@ TARGET_LINK_LIBRARIES(${PROJECT_NAME}
 PUBLIC
    
 )
+
+# 添加自定义命令，用于复制静态库文件到指定目录
+# add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+#     COMMAND ${CMAKE_COMMAND} -E copy
+#         $<TARGET_FILE:${PROJECT_NAME}>
+#         "填写要发送的路径 如: D:/Workspaces/C++/Vendor/xhlanguage/lib"
+#     COMMENT "Copying ${PROJECT_NAME} static library to destination directory"
+# )
